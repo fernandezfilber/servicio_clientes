@@ -35,5 +35,5 @@ El script de inicio ha sido configurado para simplificar la ejecución:
 ```bash
 npm start
 
-## Luego ingresar a para probar interfaz grafica
+## Luego ingresar a swagger para probar interfaz grafica
  http://localhost:3000/api-docs/
