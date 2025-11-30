@@ -1,0 +1,155 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documentación de la API de Clientes",
+    "version": "1.0.0",
+    "description": "Especificación inicial para la API de Clientes."
+  },
+  "servers": [
+    {
+      "url": "/api",
+      "description": "Ruta base de la API"
+    }
+  ],
+  "paths": {
+    "/saludar/{mensaje}": {
+      "get": {
+        "summary": "Muestra un saludo simple",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "mensaje",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ngresa saludo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa"
+          }
+        }
+      }
+    },
+   "/sumar": {
+    "post": {
+        "summary": "Sumar elementos de un array",
+        
+        "requestBody": { 
+            "required": true,
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "numero": { 
+                                "type": "array",
+                                "description": "Lista de números a sumar",
+                                "items": {
+                                    "type": "number", 
+                                    "format": "float" 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        
+        "responses": {
+            "200": {
+                "description": "El resultado de la suma",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "total": { "type": "number" }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+},
+      "/edad/{year}": {
+        "get": {
+          "summary": "calcula la edad",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "year",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              },
+              "description": "Año de nacimiento"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Respuesta exitosa"
+            }
+          }
+        }
+      },
+
+ "/validar/{edad}": {
+        "get": {
+          "summary": "valida la mayoria de edad",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "edad",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              },
+              "description": "Ingresa la edad"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Respuesta exitosa"
+            }
+          }
+        }
+      }
+      ,
+      "/imc/{peso}/{talla}": {
+        "get": {
+          "summary": "calcula la IMC",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "peso",
+              "required": true,
+              "schema": {
+                "type": "number",
+                "format": "float"
+              },
+              "description": "peso "
+            },
+            {
+              "in": "path",
+              "name": "talla",
+              "required": true,
+              "schema": {
+                "type": "number",
+                "format": "float"
+              },
+              "description": " talla "
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Respuesta exitosa"
+            }
+          }
+        }
+      }
+    }
+  }
